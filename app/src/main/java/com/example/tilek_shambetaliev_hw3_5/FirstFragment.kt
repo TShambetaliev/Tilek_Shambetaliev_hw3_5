@@ -29,13 +29,8 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.tvNumber.text = num.toString()
-
-
-
         binding.btnNumber.setOnClickListener {
-            when(num){
-                10 -> binding.btnNumber.text = ("-1")
-            }
+
             if (num < 10 && binding.btnNumber.text.equals("+1")) {
                 num++
                 binding.tvNumber.text = num.toString()
@@ -50,6 +45,9 @@ class FirstFragment : Fragment() {
                 secondFragment.arguments = bundle
                 requireActivity().supportFragmentManager.beginTransaction()
                     .replace(R.id.conteiner, secondFragment).addToBackStack(null).commit()
+            }
+            when(num){
+                10 -> binding.btnNumber.text = ("-1")
             }
         }
     }
